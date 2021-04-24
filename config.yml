@@ -3,12 +3,10 @@ watch_dir: "/home/emil/Projects/Tasker/test_dir/"
 threshold_val: 1
 
 # Values used for the caldav integration
-url: # -- redacted -- #
-username: # -- redacted -- #
-password: # -- redacted -- #
+url: # -- redacted -- # # Url for specific calendar
+username: # -- redacted -- # # Gives it self
+password: # -- redacted -- # # Might be deivece pass if 2FA is enabled
 
-# Calendar used for the tasks
-Calendar:
-# Default name for the task
+Name: "Rydde op i 'Upload fra mobil'" # Name for the task
 
-# Default priority
+priority: 0 # Default priority (1 is highest, 9 is lowest)

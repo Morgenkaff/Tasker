@@ -34,25 +34,43 @@ def log(type, msg):
 # Task creating function
 def create_task():
     
+    # Set the nescessary vars
     caldav_url = pers_data["url"]
     username = pers_data["username"]
     password = pers_data["password"]
     
+    # Screating the client
     client = caldav.DAVClient(url=caldav_url, username=username, password=password)
     
-    my_principal = client.principal()
-
-    ## The principals calendars can be fetched like this:
-    calendars = my_principal.calendars()
-    if calendars:
-        ## Some calendar servers will include all calendars you have
-        ## access to in this list, and not only the calendars owned by
-        ## this principal.
-        print("your principal has %i calendars:" % len(calendars))
-        for c in calendars:
-            print("    Name: %-20s  URL: %s" % (c.name, c.url))
-    else:
-        print("your principal has no calendars")
+    # Setting the calendar (The one the new task should be created in)
+    calendar = client.calendar(url=caldav_url)
+    
+    # Create the task    
+    calendar.add_todo("""BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:Morgenkaff
+BEGIN:VTODO
+UID:20070313T123asd4342Z-45655323asd4
+DTSTAMP:20070313T123432Z
+SUMMARY:Task name
+CATEGORIES:Bot
+STATUS:NEEDS-ACTION
+PRIORITY:9
+END:VTODO
+END:VCALENDAR""")
+    
+    # So what is needed now is:
+    # - a nicer way of formatting and adding text to the "todo-string"
+    # - a way to give it a UID
+    # - a way to set the timestamps with correct syntax
+    
+    
+    # Just printing todos (testing)
+    #todos = calendar.todos()
+    #print(todos[0].data)
+    
+    #print(todos[1].data)
+    
     
 
 
