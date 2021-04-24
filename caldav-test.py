@@ -13,9 +13,7 @@ import caldav
 
 ## CONFIGURATION.  Edit here, or set up something in
 ## tests/conf_private.py (see tests/conf_private.py.EXAMPLE).
-caldav_url = 'https://nextcloud.georgcenter.duckdns.org/remote.php/dav'
-username = 'emil'
-password = 'Z6emX-i5WWZ-bmYmd-sLi57-W6nEk'
+
 
 ## When using the caldav library, one should always start off with initiating a
 ## DAVClient object, which should contain connection details and credentials.
