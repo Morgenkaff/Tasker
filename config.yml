@@ -1,0 +1,14 @@
+# Values used for the directory scan
+watch_dir: "/home/emil/Projects/Tasker/test_dir/"
+threshold_val: 1
+
+# Values used for the caldav integration
+url: # -- redacted -- #
+username: # -- redacted -- #
+password: # -- redacted -- #
+
+# Calendar used for the tasks
+Calendar:
+# Default name for the task
+
+# Default priority

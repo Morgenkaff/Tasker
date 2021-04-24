@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 # IMPORTS:
-import os, yaml, importlib
+from datetime import datetime
+import os, yaml, importlib, caldav
+
 
 # VARS:
 current_dir = None
@@ -28,6 +30,31 @@ def log(type, msg):
         
     else: 
         print("WHAT!?")
+   
+# Task creating function
+def create_task():
+    
+    caldav_url = pers_data["url"]
+    username = pers_data["username"]
+    password = pers_data["password"]
+    
+    client = caldav.DAVClient(url=caldav_url, username=username, password=password)
+    
+    my_principal = client.principal()
+
+    ## The principals calendars can be fetched like this:
+    calendars = my_principal.calendars()
+    if calendars:
+        ## Some calendar servers will include all calendars you have
+        ## access to in this list, and not only the calendars owned by
+        ## this principal.
+        print("your principal has %i calendars:" % len(calendars))
+        for c in calendars:
+            print("    Name: %-20s  URL: %s" % (c.name, c.url))
+    else:
+        print("your principal has no calendars")
+    
+
 
 # PRIMARY LOOP:
 
@@ -39,9 +66,14 @@ current_dir = os.getcwd()
 
 config_file = current_dir+"/config.yml"
 
+pers_config_file = current_dir+"/pers_config.yml"
+
 # read conf.yaml-file and store in a dictionary (data)
 f = open(config_file)
 data = yaml.safe_load(f)
+
+pf = open(pers_config_file)
+pers_data = yaml.safe_load(pf)
 
 # set vars from values in config.json
 
@@ -64,6 +96,9 @@ log(1, "threshold_val is: " + str(threshold_val))
 # if amount oifd files is higher than the given threshold create task
 if counted_val > threshold_val:
     log(1, "Creating task")
+    
+    create_task()
+    
 # Else do nothing
 else:
     # Busy doing nothing..
