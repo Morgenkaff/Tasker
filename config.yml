@@ -7,6 +7,6 @@ url: # -- redacted -- # # Url for specific calendar
 username: # -- redacted -- # # Gives it self
 password: # -- redacted -- # # Might be deivece pass if 2FA is enabled
 
-Name: "Rydde op i 'Upload fra mobil'" # Name for the task
+name: "Rydde op i 'Upload fra mobil'" # Name for the task
 
-priority: 0 # Default priority (1 is highest, 9 is lowest)
+priority: 4 # Default priority (1 is highest, 9 is lowest, 0 is off)
