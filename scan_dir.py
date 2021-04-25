@@ -2,6 +2,7 @@
 
 # IMPORTS:
 import os, sys, yaml, caldav, datetime
+from lxml import etree
 
 
 # VARS:
@@ -104,18 +105,15 @@ END:VCALENDAR""")
 
 # get current dir for this file
 
-current_dir = os.getcwd()
+current_dir = os.environ['HOME']
 
-config_file = current_dir+"/config.yml"
+config_file = current_dir+"/.config/tasker/config.yml"
 
 pers_config_file = current_dir+"/pers_config.yml"
 
 # read conf.yaml-file and store in a dictionary (data)
 f = open(config_file)
 data = yaml.safe_load(f)
-
-pf = open(pers_config_file)
-pers_data = yaml.safe_load(pf)
 
 # set vars from values in config.json
 
@@ -141,9 +139,9 @@ if counted_val > threshold_val:
     log(1, "It's time to clean up in the directopry. Connecting to the task list.")
     
     # Set the nescessary vars to connect to the server
-    caldav_url = pers_data["url"]
-    username = pers_data["username"]
-    password = pers_data["password"]
+    caldav_url = data["url"]
+    username = data["username"]
+    password = data["password"]
     
     # Screating the client
     client = caldav.DAVClient(url=caldav_url, username=username, password=password)

@@ -1,2 +1,0 @@
-Finish off with:
-python3 -mnuitka --follow-imports scan_dir.py
