@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory;
+Actions=addTask;
+#X-KDE-AuthorizeAction=shell_access
+
+[Desktop Action addTask]
+TryExec=taskerGUI
+Exec=taskerGUI
+Icon=utilities-terminal
+
+Name=Add a Task

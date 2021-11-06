@@ -1,12 +1,12 @@
 # Values used for the directory scan
-watch_dir: "/home/emil/Projects/Tasker/test_dir/"
-threshold_val: 1
+watch_dir: "/home/emil/"
+threshold_val: 20
 
 # Values used for the caldav integration
 url: # Url for specific calendar
 username: # Gives it self
-password: # Might be deivece pass if 2FA is enabled
+password:  # Might be device pass if 2FA is enabled
 
 name: "Rydde op i 'Upload fra mobil'" # Name for the task
 
-priority: 4 # Default priority (1 is highest, 9 is lowest, 0 is off)
+priority: 3 # Default priority (1 is highest, 9 is lowest, 0 is off)

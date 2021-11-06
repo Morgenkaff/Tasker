@@ -26,7 +26,7 @@ cp config.yml "$config_dir"/
 crontab -l > mycron
 #echo new cron into cron file
 #echo "@daily scan_dir" >> mycron
-echo "* * * * * /usr/bin/python $install_dir/scan_dir -v > /home/emil/scan.log" >> mycron
+echo "* * * * * python3 $install_dir/scan_dir -v" >> mycron
 #install new cron file
 crontab mycron
 rm mycron
